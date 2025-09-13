@@ -17,15 +17,6 @@
   (https://github.com/fmtlib/fmt/issues/3403,
   https://github.com/fmtlib/fmt/pull/4456). Thanks @msvetkin.
 
-- Improved C++20 module support
-  (https://github.com/fmtlib/fmt/pull/4451,
-  https://github.com/fmtlib/fmt/pull/4459,
-  https://github.com/fmtlib/fmt/pull/4476,
-  https://github.com/fmtlib/fmt/pull/4488,
-  https://github.com/fmtlib/fmt/issues/4491,
-  https://github.com/fmtlib/fmt/pull/4495).
-  Thanks @arBmind, @tkhyn, @Mishura4, @anonymouspc and @autoantwort.
-
 - Added `FMT_STATIC_FORMAT` that allows formatting into a string of the exact
   required size at compile time.
 
@@ -46,6 +37,15 @@
 
   It can be accessed as a C string with `s.c_str()` or as a string view with
   `s.str()`.
+
+- Improved C++20 module support
+  (https://github.com/fmtlib/fmt/pull/4451,
+  https://github.com/fmtlib/fmt/pull/4459,
+  https://github.com/fmtlib/fmt/pull/4476,
+  https://github.com/fmtlib/fmt/pull/4488,
+  https://github.com/fmtlib/fmt/issues/4491,
+  https://github.com/fmtlib/fmt/pull/4495).
+  Thanks @arBmind, @tkhyn, @Mishura4, @anonymouspc and @autoantwort.
 
 - Switched to using estimated display width in precision. For example:
 
@@ -74,12 +74,17 @@
   formatters (https://github.com/fmtlib/fmt/issues/4424,
   https://github.com/fmtlib/fmt/pull/4434). Thanks @jeremy-rifkin.
 
-- Removed deprecated `basic_format_args::parse_context_type` and
-  `basic_format_args::formatter_type` and similar aliases in context types.
+- Removed the following deprecated APIs:
 
-- Removed deprecated `has_formatter`. Use `is_formattable` instead.
+  - `has_formatter`: use `is_formattable` instead,
+  - `basic_format_args::parse_context_type`,
+    `basic_format_args::formatter_type` and similar aliases in context types,
+  - wide stream overload of `fmt::printf`,
+  - wide stream overloads of `fmt::print` that take text styles,
+  - `is_*char` traits,
+  - `fmt::localtime`.
 
-- Removed legacy `is_*char` traits.
+- Deprecated wide overloads of `fmt::fprintf` and `fmt::sprintf`.
 
 - Improved diagnostics for the incorrect usage of `fmt::ptr`
   (https://github.com/fmtlib/fmt/pull/4453). Thanks @TobiSchluter.
